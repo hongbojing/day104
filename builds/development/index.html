@@ -1,13 +1,34 @@
 <!doctype html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <title>day #</title>
-  <link rel="stylesheet" href="css/myStyle.css">
-  <link rel="stylesheet" href="css/anotherstyle.css">
+    <meta charset="UTF-8">
+    <title>day #</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
 </head>
-<body>
+<body ng-app="myApp">
+<div ng-controller="myController as myCtrl">
+    <table class="table">
+        <tr>
+            <th>
+                <a href="" ng-click="myCtrl.order('name')">Name</a>
+            </th>
+            <th>
+                <a href="" ng-click="myCtrl.order('age')">Age</a>
+            </th>
+            <th>
+                <a href="" ng-click="myCtrl.order('college')">College</a>
+            </th>
+        </tr>
+        <tr ng-repeat="data in myCtrl.names | orderBy:myCtrl.predicate:reverse">
+            <td>{{data.name}}</td>
+            <td>{{data.age}}</td>
+            <td>{{data.college}}</td>
+        </tr>
+    </table>
+</div>
 
+<script src="js/lib/angular/angular.min.js"></script>
+<script src="js/app.js"></script>
 <!--  <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>-->
 </body>
 </html>
